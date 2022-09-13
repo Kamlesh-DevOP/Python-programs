@@ -1,6 +1,3 @@
-from itertools import count
-
-
 s=0
 count=0
 while True:
