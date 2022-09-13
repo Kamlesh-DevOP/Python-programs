@@ -1,0 +1,15 @@
+exam1=int(input('Enter your marks in 1st exam(out of 100): '))
+exam2=int(input('Enter your marks in 2nd exam(out of 100): '))
+exam_total=exam1+exam2
+act1=int(input('Enter your marks in activity 1(out of 20): '))
+act2=int(input('Enter your marks in activity 2(out of 20): '))
+act3=int(input('Enter your marks in activity 3(out of 20): '))
+act_total=act1+act2+act3
+sports=int(input('Enter your marks in sports(out of 50): '))
+examtotal=exam_total*50/200
+sportstotal=sports*20/50
+acttotal=act_total*30/60
+print('Exam weightage(out of 50)= ',examtotal)
+print('Sports weightage(out of 20)= ', sportstotal)
+print('Activity total(out of 30)= ',acttotal)
+print('Grand total percentage= ', examtotal+sportstotal+acttotal)
