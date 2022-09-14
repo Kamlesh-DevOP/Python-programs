@@ -11,3 +11,4 @@ for i in range(5,0,-1):
         print(k,end='')
         sum+=k
     print('-',sum)
+#by ajeetha and me
