@@ -22,4 +22,4 @@ elif count%6==5:
     print('Enemies''\nErr... Enemies.. Everybody wants to be my enemy...')
 else:
     print('Sister''\nSister bro are best couples! ಥ_ಥ')
-    
+#incomplete
