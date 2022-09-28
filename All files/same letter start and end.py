@@ -1,10 +1,11 @@
-showa=''
+#Quarterly question
+show=''
 while True:
     st=input('Enter a string: ')
     if st in 'ENDend':
         break
     elif st[0]==st[-1]:
-        showa+=st+','
+        show+=st+','
     else:
         print('Nope')
-print(showa)
+print(show)
