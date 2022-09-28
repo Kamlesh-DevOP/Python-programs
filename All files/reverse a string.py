@@ -4,4 +4,4 @@ print('Reverse of your number is', rev)
 if str==rev:
     print("You've entered a palindrome")
 else:
-    print('Done:D !')
+    print('Not a palindrome!')
