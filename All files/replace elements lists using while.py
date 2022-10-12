@@ -1,14 +1,14 @@
-from ast import Index
-
-
 index=int(input('Enter index number: '))
 value=input('Enter value: ')
 lst=['a','b','c','d','f']
+v=lst[len(lst):]
 i=0
 L=[]
-while i<index:
-    L+=lst[i]
+while i<len(lst):
+    if i==index:
+        L+=[value]
+    else:
+        L+=lst[i]
     i+=1
-L+=[value]
-L+=lst[index:]
+L+=v
 print(L)
