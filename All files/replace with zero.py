@@ -12,3 +12,4 @@ for j in range(len(lst)):
             lst[k],lst[j]=lst[j],lst[k]
             k+=1
 print(lst)
+#by brilliant madhu
