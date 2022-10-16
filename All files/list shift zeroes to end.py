@@ -1,4 +1,4 @@
-lst=eval(input('Enter a number: '))
+lst=eval(input('Enter a list: '))
 i=0
 lst+=['']
 while i < len(lst):
