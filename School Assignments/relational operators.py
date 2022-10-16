@@ -1,7 +1,0 @@
-x=int(input('Enter a nuumber: '))
-y=int(input('Enter another number: '))
-print(x,'>',y,'is: ', x>y)
-print(x,'<',y,'is: ', x<y)
-print(x,'==',y,'is: ', x==y)
-print(x,'>=',y,'is: ', x>=y)
-print(x,'<=',y,'is: ', x<y)
