@@ -2,4 +2,4 @@
 n=int(input('Enter any number: '))
 rev=int(str(n)[::-1])
 if n**2==rev**2:
-    print(n,'is an adam number')
+    print(n,'is an adam number')    
