@@ -27,6 +27,6 @@ while True:
         else:
             print(h,":",m,":",s,"AM")
     elif ch==2:
-          print(h,":",m,":",s)
+          print(h1+h2,":",m,":",s)
     elif ch==3:
           break
