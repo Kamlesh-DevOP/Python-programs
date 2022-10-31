@@ -17,44 +17,19 @@ while i<len1:
         j+=1
     i+=1
 num=len(lst1+lst2)
-flames=list('FLAMES')
-num=num%6
-k=0
-cou=0
-length=len(flames)
-while k<length:
-    cou+=1
-    if cou==num:
-        del flames[cou-1]
-    k+=1
-    length-=1
-#incomplete
+flames=list('SFLAME') #using SFLAME because 6%6=0 and we wanna cancel S in that case. Shifting S to 0 index can solve the problem
+flames1=list('FLAMES')
+for k in range(6,0,-1):
+    member=num
+    member=num%k
+    ans=flames.pop(member)
+    if len(flames)>0:
+        x=flames.pop(-1)
+        flames=[x]+flames
+print(ans)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#partially crt
 '''
-l=[]
-name=n1+n2
-for i in name:
-    if i in l:
-        continue
-    else:
-        l.append(i)
-for c in l:
-    count+=1
 if count%6==1:
     print('Friends''\nWe are just friends!')
 elif count%6==2:
