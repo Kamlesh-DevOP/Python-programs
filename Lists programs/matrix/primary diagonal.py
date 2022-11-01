@@ -1,4 +1,4 @@
-#sinlgle loop
+#single loop
 l=eval(input('Enter list: '))
 for i in range(len(l)):
     print(l[i][i],end=' ')
