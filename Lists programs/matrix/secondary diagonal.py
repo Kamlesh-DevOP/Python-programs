@@ -1,18 +1,11 @@
-l=eval(input('Enter the elements '))
-x=[]
-prime=[]
-for i in range(5):
-    for j in range(5):
-        if i==0 or i==4 or j==0 or j==4:
-            x.append(l[i][j])
-for k in x:
-    if k==0 or k==1:
-        continue
-    for t in range(2,k):
-        if k%t==0:
-            break
-    else:
-        if k not in prime:
-            prime.append(k)
-print(prime)
-#mohnish and me
+#nested loop
+l=eval(input('Enter list: '))
+for i in range(len(l)):
+    for j in range(len(l)-1,-1,-1):
+        if i+j==len(l)-1:
+            print(l[i][j], end=' ')
+        else: print('  ', end=' ')
+    print()
+#single loop
+for i in range(len(l)):
+    print(l[i][len(l)-1-i],end=' ')
