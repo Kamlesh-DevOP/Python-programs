@@ -1,7 +1,7 @@
 #nested loop
 l=eval(input('Enter list: '))
 for i in range(len(l)):
-    for j in range(len(l)-1,-1,-1):
+    for j in range(len(l)):
         if i+j==len(l)-1:
             print(l[i][j], end=' ')
         else: print('  ', end=' ')
