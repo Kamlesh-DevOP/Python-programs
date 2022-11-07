@@ -28,3 +28,4 @@ for j in l[2:]:
     elif j<sec_min:
         sec_min=j
 print(sec_min)
+#I did this myself with help from mom 
