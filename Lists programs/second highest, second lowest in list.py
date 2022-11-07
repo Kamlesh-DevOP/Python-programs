@@ -1,3 +1,4 @@
+#record question
 l=eval(input('Enter list: '))
 if l[0]>l[1]:
     max=l[0]
