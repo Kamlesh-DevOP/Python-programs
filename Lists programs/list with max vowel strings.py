@@ -7,9 +7,13 @@ for i in l:
     for j in i:
         if j in 'AEIOUaeiou':
             count+=1
-    vowel+=[count]
-max_index=vowel[0]
-for i in range(len(vowel)):
-    if vowel[i]>max_index:
-        max_index=i #getting index value of the element containing highest number of vowels
-print(l[max_index], 'is the string with maximum vowels')
+    vowel.append(count)
+print(vowel)
+max=vowel[0]
+for i in vowel:
+    if i>max:
+        max=i
+for j in range(len(vowel)):
+    if vowel[j]==max:
+        print(l[j])
+        

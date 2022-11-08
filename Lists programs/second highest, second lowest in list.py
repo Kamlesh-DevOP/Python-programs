@@ -1,11 +1,17 @@
 #record question
-l=eval(input('Enter list: '))
+n=int(input('enter number of elements:'))
+l=[]
+for i in range(n):
+    x=int(input('Enter int:'))
+    if x not in l:
+        l.append(x)
+print(l)
 if l[0]>l[1]:
     max=l[0]
     sec_max=l[1]
 else:
-    max=l[0]
-    sec_max=l[1]
+    max=l[1]
+    sec_max=l[0]
 
 for i in l[2:]:
     if i>max:
@@ -13,7 +19,7 @@ for i in l[2:]:
         max=i
     elif i>sec_max:
         sec_max=i
-print(sec_max)
+print('Max=',max,'Second max=',sec_max)
 
 if l[0]>l[1]:
     min=l[1]
@@ -28,5 +34,4 @@ for j in l[2:]:
         min=j
     elif j<sec_min:
         sec_min=j
-print(sec_min)
-#I did this myself with help from mom 
+print('Min=',min,'Second min=',sec_min)
