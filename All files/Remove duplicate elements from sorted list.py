@@ -1,4 +1,4 @@
-nums=int(input('Enter list: '))
+nums=int(input('Enter sorted list: '))
 for i in range(len(nums)):
     for j in nums[i+1:]:
         if nums[i]==j:
