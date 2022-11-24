@@ -8,5 +8,3 @@ for i in range(2,num):
         break
 else:
     print('It is a prime number')
-
-
