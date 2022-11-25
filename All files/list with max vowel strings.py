@@ -16,4 +16,3 @@ for i in vowel:
 for j in range(len(vowel)):
     if vowel[j]==max:
         print(l[j])
-        
