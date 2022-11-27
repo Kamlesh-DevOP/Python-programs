@@ -3,7 +3,7 @@ n=int(input('Enter the n: '))
 x=int(input('Enter the x: '))
 sum1,sign=0,1
 for i in range(1,n+1):
-    nr=x**n
+    nr=x**i
     f=1
     for j in range(1,i*2):
         f=f*j
