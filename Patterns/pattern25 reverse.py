@@ -1,11 +1,11 @@
 '''
-    A
-   ABA
-  ABCBA
- ABCDCBA
 ABCDEDCBA
-''' 
-for i in range(65,70):
+ ABCDCBA
+  ABCBA
+   ABA
+    A
+'''
+for i in range(69,64,-1):
     for j in range(i+1,70):
         print(' ', end='')
     for k in range(65,i+1):
