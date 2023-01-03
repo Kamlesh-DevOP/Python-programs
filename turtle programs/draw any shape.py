@@ -2,7 +2,7 @@ import turtle
 sides=int(input('Enter number of sides: '))
 t=turtle.Turtle()
 s=turtle.Screen()
-s.bgcolor('brown')
+s.bgcolor('cyan')
 t.pencolor('blue')
 t.penup()
 t.width(10)
