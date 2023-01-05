@@ -9,8 +9,7 @@ end=0
 for i in range(end,len(str)):
     if (str[i]=='[' or str[i]==',') and str[i+1]=='[':
         temp=[]
-        temp+=[int(str[i+2])]
-        i+=3
+        i+=2
         while str[i]!=']':
             if str[i]==',':
                 i+=1
