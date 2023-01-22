@@ -15,4 +15,3 @@ for i in range(65,70):
         b = chr(m)
         print(b, end='')
     print()
-#ajee 

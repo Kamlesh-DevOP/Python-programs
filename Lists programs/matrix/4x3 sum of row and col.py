@@ -22,4 +22,3 @@ for i in range(3):
 print('Column Total:   ',end='')
 for k in colsum:
     print(k, end="  ")
-#ajee

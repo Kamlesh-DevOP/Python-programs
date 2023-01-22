@@ -16,4 +16,3 @@ for k in range(4,-1,-1):
         print(chr(j),end='')
     print()
     ch+=1
-#ajee struggled and i helped her and BOOM! Gotcha!
