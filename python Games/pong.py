@@ -2,7 +2,6 @@ import pygame
 import sys
 from random import * 
 import time
-flag=0
 
 def main():
     a=1
