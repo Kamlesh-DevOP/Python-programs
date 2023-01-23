@@ -39,8 +39,17 @@ def main():
             if event.type == pygame.QUIT:
                 exit()
         screen.blit(intro_surf, (0,0))
+        
+        #adding cursor
+        pos=pygame.mouse.get_pos()
+        if (pos[0]>306 and pos[0]<639 and pos[1]>364 and pos[1]<462) or (pos[0]>379 and pos[0]<578 and pos[1]>511 and pos[1]<591):
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+        else:
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
+            
             if pos[0]>306 and pos[0]<639 and pos[1]>364 and pos[1]<462:
                 running = True
                 break
@@ -141,7 +150,7 @@ def main():
 
         if player2_score==10:
             screen.blit(player_2_surf,(0,0))
-            pygame.display.flip()
+            pygame.display.flip()         
             time.sleep(3)
             sys.exit()
             pygame.quit()
@@ -152,3 +161,4 @@ def main():
     sys.exit()
 
 main()
+
