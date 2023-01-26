@@ -61,7 +61,7 @@ def main():
 
     
     while running:
-
+        pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
