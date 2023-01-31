@@ -62,7 +62,11 @@ def main():
 #waiting time before start
     for i in range(500):
         screen.blit(background_surface, (0,0))
-        pygame.draw.circle(screen, (255, 255, 255), (int(ball_pos[0]), int(ball_pos[1])), ball_radius)
+        for j in range(70):
+            pygame.draw.circle(screen, (255, 255, 255), (int(ball_pos[0]), int(ball_pos[1])), ball_radius)
+        for k in range(10):
+            pygame.draw.rect(screen, (255, 255, 255), (paddle2_pos[0], paddle2_pos[1], paddle_width, paddle_height))
+            pygame.draw.rect(screen, (255, 255, 255), (paddle1_pos[0], paddle1_pos[1], paddle_width, paddle_height))
         pygame.display.flip()
         
     while running:
