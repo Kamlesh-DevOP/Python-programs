@@ -59,7 +59,12 @@ def main():
 
         pygame.display.flip()
 
-    
+#waiting time before start
+    for i in range(500):
+        screen.blit(background_surface, (0,0))
+        pygame.draw.circle(screen, (255, 255, 255), (int(ball_pos[0]), int(ball_pos[1])), ball_radius)
+        pygame.display.flip()
+        
     while running:
         pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
         for event in pygame.event.get():
