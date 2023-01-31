@@ -76,6 +76,8 @@ def main():
                 running = False
         
         keys = pygame.key.get_pressed()
+        if keys[pygame.K_ESCAPE]:
+            running=False  
         if keys[pygame.K_w]:
             if paddle1_pos[1]<=0:
                 pass
