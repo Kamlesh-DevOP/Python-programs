@@ -4,9 +4,7 @@ sum=0
 count=0
 for i in range(5):
     for j in range(5):
-        if i==j==2:
-            print(' ',end='')
-        elif i==j or i+j==4:
+        if (i==j or i+j==4) and not i==j==2 :
             print(l[i][j],end=' ')
             sum+=l[i][j]
             count+=1
