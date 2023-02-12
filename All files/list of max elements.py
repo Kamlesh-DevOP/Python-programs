@@ -22,5 +22,5 @@ for j in l:
         if j not in a:
             a.append(j)
 print(a)
-#mad supremacy
+#madhu supremacy
 #she did it in 10 mins whilw it took me more than 30 mins yet i failed :(
