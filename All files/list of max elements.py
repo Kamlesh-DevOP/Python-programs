@@ -23,4 +23,4 @@ for j in l:
             a.append(j)
 print(a)
 #madhu supremacy
-#she did it in 10 mins whilw it took me more than 30 mins yet i failed :(
+#she did it in 10 mins while it took me more than 30 mins yet i failed :(
