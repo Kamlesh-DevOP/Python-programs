@@ -12,8 +12,14 @@ Explanation: There is no common prefix among the input strings.
 '''
 arr=eval(input('Enter array of strings: '))
 minelement=arr[0]
-arr.remove(minelement)
+
 b=True
+
+for word in arr:
+    if len(word)<len(minelement):
+        minelement=word
+arr.remove(minelement)
+
 for i in arr:
     if i==minelement:
         print(minelement)
@@ -21,11 +27,8 @@ for i in arr:
     else:
         break
 
-for word in arr:
-    if len(word)<len(minelement):
-        minelement=word
 minelementlength=len(minelement)
-for i in range(1,minelementlength+1):
+for i in range(1,minelementlength+2):
     for word in arr:
         check=minelement
         if word[0:i]!=check[0:i]:
