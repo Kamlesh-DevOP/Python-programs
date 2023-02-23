@@ -14,7 +14,8 @@ arr=eval(input('Enter array of strings: '))
 minelement=arr[0]
 
 b=True
-
+if len(arr)==1:
+    print(arr[0])
 for word in arr:
     if len(word)<len(minelement):
         minelement=word
