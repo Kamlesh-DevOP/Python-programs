@@ -1,6 +1,3 @@
-from xml import dom
-
-
 st=input('Enter a email id: ')
 domain='@gmail.com'
 len_do=len(domain)
