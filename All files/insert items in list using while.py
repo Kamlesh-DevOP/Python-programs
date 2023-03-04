@@ -1,6 +1,6 @@
 lst=eval(input('Enter a list: '))
 index=int(input('Enter index number: '))
-value=input('Enter value: ')
+value=eval(input('Enter value: '))
 le=len(lst)
 lst+=[value]
 i=0
