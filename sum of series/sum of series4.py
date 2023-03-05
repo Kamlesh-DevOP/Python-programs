@@ -1,7 +1,4 @@
 #1+ 1^2+ 2^2+ 1^3+ 2^3+ 3^3
-import decimal
-
-
 n=int(input('Enter the n: '))
 s=0
 for i in range(1,n+1):
