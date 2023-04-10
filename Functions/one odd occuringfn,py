@@ -1,0 +1,8 @@
+def find(arr):
+  res=0
+  for element in arr:
+    res=res^element
+  return res
+
+l=[3,5,5,200,3]
+print(find(l))
