@@ -1,6 +1,4 @@
-                                        Lorem 
-
-
+Lorem
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Etiam ultrices lectus sed ligula posuere elementum. Sed laoreet sagittis 
 nibh, vel ullamcorper augue maximus sit amet.
