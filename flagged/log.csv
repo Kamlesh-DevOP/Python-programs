@@ -1,0 +1,3 @@
+name,is_morning,temperature,output 0,output 1,flag,username,timestamp
+Kamlesh,True,99,Good morning Kamlesh. It is 99 degrees today,37.22,,,2023-06-19 15:54:36.947004
+Kamlesh,True,99,Good morning Kamlesh. It is 99 degrees today,37.22,,,2023-06-19 15:54:55.114798
