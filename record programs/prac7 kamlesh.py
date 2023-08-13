@@ -8,8 +8,8 @@ def view():
     for i in D:
         print(i, D[i])
 def modify(phno):
-    newname=input('Enter new name: ')
     if phno in D:
+        newname=input('Enter new name: ')
         D[phno]=newname
         print('Dictionary modified')
     else:
@@ -41,9 +41,10 @@ while True:
         phno=int(input('Enter phone number to modify: '))
         modify(phno)
     elif ch==4:
-        phno=int(input('Enter phone number to modify: '))
+        phno=int(input('Enter phone number to delete: '))
         delete(phno)
     elif ch==5:
+        print('Exiting...')
         break
     else:
         print('Invalid choice')

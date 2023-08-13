@@ -26,6 +26,7 @@ while True:
     elif ch == 2:
         n = int(input('Enter Number of terms for fibonacci series: '))
         fibo(n)
+        print()
     elif ch == 3:
         break
     else:

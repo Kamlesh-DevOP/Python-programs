@@ -30,7 +30,7 @@ def Prime():
     if lolist:
         return lolist
     else:
-        return 'no prime numbers in the generated list'
+        return 'No prime numbers in the generated list'
 
 print('''MENU:
 1. Generate list of 5 random numbers
@@ -40,8 +40,8 @@ print('''MENU:
 while True:
     ch=int(input('Enter a menu code: '))
     if ch==1:
-        ul=int(input('Enter upper limit: '))
         ll=int(input('Enter lower limit: '))        
+        ul=int(input('Enter upper limit: '))
         print(Generate(ll,ul))
     elif ch==2:
         print(Max_SecMax()[0],'is the highest',Max_SecMax()[1],'is the second highest')

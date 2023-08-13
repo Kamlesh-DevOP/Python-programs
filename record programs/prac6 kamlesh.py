@@ -15,22 +15,20 @@ def bmi(nesttup):
             result='normal weight'
         else:
             result='overweight'
-        t+=(bmi,result),
-    return t
+        print(tup[0],bmi,result)
 
+print('''MENU
+1. Find words with all vowels
+2. Find BMI
+3. Exit''')
 while True:
-    print('''MENU
-    1 Find words with all vowels
-    2 Find BMI''')
     ch=int(input('enter your choice: '))
-
     if ch==1:
         tup=tuple()
         n=int(input('enter number of elements: '))
         for i in range(n):
             tup+=(input('enter word: ')),
         allvowels(tup)
-
     elif ch==2:
         T=tuple()
         n=int(input('enter no. of entries: '))
@@ -40,11 +38,9 @@ while True:
             t+=float(input('enter height in metres: ')),
             t+=float(input('enter weight in kg: ')),
             T+=t,
-        for i in range(len(T)):
-            print(T[i][0],bmi(T)[i][0],bmi(T)[i][1])
-
+        print(T)
+        bmi(T)
     elif ch==3:
         break
-    
     else: print('INVALID CHOICE')
     print()

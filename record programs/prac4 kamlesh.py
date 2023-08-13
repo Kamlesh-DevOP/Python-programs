@@ -6,18 +6,22 @@ def binarysearch(l,s):
     while lower<=upper:
         mid=(lower+upper)//2
         if l[mid]==s:
-            return mid
+            print(s,'is present in',mid,'index')
+            break
         elif l[mid]>s:
             upper=mid-1
         elif l[mid]<s:
             lower=mid+1
+    else:
+        print(s, 'is not present in the given list')
 def reverse_str(s):
     return s[::-1]
-while True:
-    print('''MENU
+
+print('''MENU
 1. Binary search
 2. Reverse a string
 3. Exit''')
+while True:
     ch=int(input('Enter choice: '))
     if ch==1:
         l=[]
@@ -27,7 +31,6 @@ while True:
             l.append(x1)
         s=int(input("Enter number to search: "))
         r=binarysearch(l,s)
-        print(s,'is present in',r+1,"position")
     elif ch==2:
         st=input('Enter string to reverse: ')
         print(reverse_str(st))
