@@ -3,11 +3,11 @@ Write a function to find the longest common prefix string amongst an array of st
 If there is no common prefix, return an empty string &quot;&quot;.
 
 Example 1:
-Input: strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
-Output: &quot;fl&quot;
+Input: strs = ['flower','flow','flight']
+Output: ''
 Example 2:
-Input: strs = [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
-Output: &quot;&quot;
+Input: strs = ['dog','racecar','car']
+Output: ''
 Explanation: There is no common prefix among the input strings.
 '''
 arr=eval(input('Enter array of strings: '))
@@ -39,6 +39,6 @@ for i in range(1,minelementlength+2):
     if not b:
         break
 
-#guha's question in annual practicals. thank god i didnt get this... literally went through a breakdown and 2 depressing days to finally 
+#guha's question in class 11 annual practicals. thank god i didnt get this... literally went through a breakdown and 2 depressing days to finally 
 #complete this
 #its a leetcode easy problem btw
