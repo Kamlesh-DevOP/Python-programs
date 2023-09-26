@@ -21,7 +21,7 @@ while True:
         with open('data.txt','r') as f:
             for i in f.read().split():
                 if i==i[::-1]:
-                    print(i)
+                    print(i,end=' ')
                     flag=1
         if flag==0:print('No palindromes')
     elif ch==3:
@@ -30,7 +30,7 @@ while True:
             for i in f.read().split():
                 m=i.lower()
                 if m[0] in 'aeiou' and m[-1] in 'aeiou':
-                    print(i)
+                    print(i, end=' ')
                     flag=1
         if flag==0: print('No such words')
     elif ch==4:

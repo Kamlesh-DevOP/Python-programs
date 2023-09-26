@@ -10,6 +10,7 @@ for i in category:
     score[i] = temp
 print()
 def MAX_SCORE(D):
+    print('Winners: \n')
     for category in D:
         d=D[category]
         max=0

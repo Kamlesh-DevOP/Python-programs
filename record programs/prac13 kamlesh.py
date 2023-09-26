@@ -15,6 +15,7 @@ while True:
 2. Increment the total by 3 marks for students in the biology stream and decrement by 2 for
 students in EG stream.
 3. Exit''')
+while True:
     ch=int(input('Enter choice: '))
     if ch==1:
         with open('STUDENT.dat','rb') as f:

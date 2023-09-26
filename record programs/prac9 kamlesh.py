@@ -18,7 +18,7 @@ while True:
         else:
             for i in l:
                 print(i, end=' ')
-            print('are the palindrome numbers present in the tuple', tup)
+            print(' - palindrome numbers present in the tuple', tup)
     elif ch==2:
         ll=int(input('Enter lower limit: '))
         ul=int(input('Enter upper limit: '))
@@ -32,6 +32,7 @@ while True:
         if l==[]:
             print('No special numbers exist in the range',ll,'-',ul )
         else: 
+            print('Special numbers:')
             for i in l:
                 print(i, end=' ')
             print()

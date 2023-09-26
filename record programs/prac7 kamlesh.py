@@ -6,7 +6,7 @@ def add():
     print('Name added')
 def view():
     for i in D:
-        print(i, D[i])
+        print(i, D[i], sep=' - ')
 def modify(phno):
     if phno in D:
         newname=input('Enter new name: ')
