@@ -4,7 +4,6 @@ with open('data.txt','w') as f:
     for i in range(n):
         s=s+input('Enter a line: ')+'\n'
     f.write(s)
-    print(s)
     print('File created successfully')
 print('''MENU
 1. Count the number of words

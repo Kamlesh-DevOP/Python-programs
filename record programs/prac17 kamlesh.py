@@ -1,6 +1,6 @@
 def Push():
-    n=input('Enter country name: ')
-    m=input('Enter capital: ')
+    n=input('Enter country name: ').capitalize()
+    m=input('Enter capital: ').capitalize()
     st.append([n,m])
 def Pop():
     if st:
@@ -8,14 +8,15 @@ def Pop():
     else:
         print('Underflow')
 def Display():
-    if st:
-        for i in range(len(st)-1,-1,-1):
-            print(st[i],end='\n')
-        print()
+    if st==[]:
+        print('Empty stack')
     else:
-        print('Underflow')
+        top=len(st)-1
+        print(st[top],'<- top')
+        for i in range(top-1,-1,-1):
+            print(st[i])
 def Peek():
-    if st: print(st[-1])
+    if st: print('Topmost element:',st[-1])
     else:print('Underflow')
 st=[]
 print('''MENU
