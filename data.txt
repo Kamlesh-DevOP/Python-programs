@@ -1,3 +1,0 @@
-this line has
-no palindromic words
-and words starting and ending with vowels

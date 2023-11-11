@@ -12,3 +12,4 @@ def binarysearch(L,element):
                 start=mid+1
     else:
         return 'element not found'
+print(binarysearch([1,2,3,4,5],2))

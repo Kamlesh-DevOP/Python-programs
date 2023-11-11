@@ -1,5 +1,5 @@
 import csv
-with open(r'GST.csv','w+',newline='') as f:
+with open('D:/python/GST.csv','w+',newline='') as f:
     w=csv.writer(f)
     w.writerow(['Category','GST Percentage'])
     w.writerow(['Automobiles','25'])

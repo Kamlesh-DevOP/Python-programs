@@ -1,5 +1,6 @@
-f=open('covid.txt','w')
-f.write('''c''')
+f=open('covid.txt','w+')
+f.write('''covid is a deadly virus
+''')
 f.close()
 
 f2=open('edited.txt','w')
