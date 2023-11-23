@@ -24,4 +24,4 @@ for i in range(n):
     else:
         result='FAIL'
     d[roll]=(name,stream,mark,result)
-    print(d)
+print(d)
