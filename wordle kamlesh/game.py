@@ -121,7 +121,4 @@ def rungame():
     New_Menu.add_command(label = "New Game", command = window)
     New_Menu.add_command(label = "Exit", command = lambda: root.destroy())
     root.config(menu = Menubar)
-    width = window.winfo_width()
-    height = window.winfo_height()
-    print(height,width)
     root.mainloop()
