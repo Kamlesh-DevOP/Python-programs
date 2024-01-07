@@ -4,7 +4,7 @@ from tkinter import *
 import game
 
 signupwindow=CTk()
-signupwindow.iconbitmap('wordle project\icon.ico')
+signupwindow.iconbitmap('wordle kamlesh\icon.ico')
 signupwindow.geometry('600x600')
 signupwindow.minsize(600,600)
 signupwindow.title('Wordle')
