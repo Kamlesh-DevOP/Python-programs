@@ -1,7 +1,7 @@
 from customtkinter import *
 import csv
-from tkinter import *
-import game
+import tkinter as tk
+from game import *
 
 signupwindow=CTk()
 signupwindow.iconbitmap('wordle kamlesh\icon.ico')
@@ -33,18 +33,15 @@ def on_login_submit():
     pwd=pwd_login_entry.get()
     with open(r'wordle kamlesh\userdetails.csv','r') as f:
         r=csv.reader(f)
-        for i in r:
-            if i==[userid,pwd]:
-                loginsuccess=1
-                break
-        if loginsuccess:
+        data=list(r).copy() #using .copy and copying csv contents in another list because 'in' operator malfunctioned due to some reason
+        if [userid,pwd] in data:
                 signupwindow.destroy()
                 game.rungame()
         else:
             if pwd=='' or userid=='':
-                messagebox.showerror("Error","Empty field(s). Please fill all the fields")
+                tk.messagebox.showerror("Error","Empty field(s). Please fill all the fields")
             else:
-                messagebox.showerror('Wrong credentials','Please check your credentials.')
+                tk.messagebox.showerror('Wrong credentials','Please check your credentials.')
 login_submit_button=CTkButton(tab1, text='Submit', command= on_login_submit)
 login_submit_button.grid(row=3, padx=50, pady=10, sticky="ew")
 
@@ -69,7 +66,7 @@ def on_signup_submit():
     userid=signup_userid_entry.get()
     pwd=signup_pwd_entry.get()
     confirm=signup_confirmpass_entry.get()
-    if confirm==pwd:
+    if confirm==pwd and len(pwd)!=0:
         with open(r'wordle kamlesh\userdetails.csv', 'a', newline='') as f:
             w=csv.writer(f)
             w.writerow([userid, pwd])
@@ -77,9 +74,9 @@ def on_signup_submit():
         game.rungame()
     else:
         if pwd=='' or confirm=='' or userid=='':
-            messagebox.showerror("Error","Empty field(s). Please fill all the fields")
+            tk.messagebox.showerror("Error","Empty field(s). Please fill all the fields")
         else: 
-            messagebox.showerror("Error","Password and Confirm password fields don't match") 
+            tk.messagebox.showerror("Error","Password and Confirm password fields don't match") 
 signup_submit_button=CTkButton(tab2, text='Submit', command= on_signup_submit)
 signup_submit_button.grid(row=4, padx=50, pady=10, sticky="ew")
 

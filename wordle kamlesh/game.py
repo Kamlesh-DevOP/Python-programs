@@ -2,12 +2,6 @@ from random import *
 from tkinter import *
 import os
 
-root = Tk()
-frame = Frame(root, bg = "#73706f")
-frame.pack(ipadx = 20)
-root.title("Wordle Remake")
-
-
 def Guess_Checker(Guess):    
                        #FUNCTION TO CHECK THE GUESS
     answer_list = list()
@@ -103,6 +97,11 @@ def window():
 
 def rungame():
     global Guess,letter_input,active_lettercount,result,titlee,words
+    root = Tk()
+    frame = Frame(root, bg = "#73706f")
+    frame.pack(ipadx = 20)
+    root.minsize(465,753)
+    root.title("Wordle Remake")
     Guess = ""
     with open("wordle kamlesh\wordle_words.txt", "r") as f:
         words = f.read().splitlines()
