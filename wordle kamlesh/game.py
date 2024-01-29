@@ -2,6 +2,8 @@ from random import *
 from tkinter import *
 import os
 
+
+
 def Guess_Checker(Guess):    
                        #FUNCTION TO CHECK THE GUESS
     answer_list = list()
@@ -23,6 +25,8 @@ def Guess_Checker(Guess):
         result = True           #IF GUESS IS ANSWER, RUN winner()
         winner()
 
+
+
 def winner():
     global winner_frame
     winner_frame = Frame(root)
@@ -34,9 +38,14 @@ def winner():
     replay = Button(winner_frame, text = "New Game", command = winner2)
     replay.grid(column = 2)
     
+
+
+
 def winner2():
     winner_frame.destroy()                                               #Makeshift function to delete endgame frame
     window()
+
+
 
 def loser():
     global loser_frame
@@ -49,9 +58,14 @@ def loser():
     replay2 = Button(loser_frame, text = "New Game", command = loser2)
     replay2.grid(column = 2)
 
+
+
 def loser2():
     loser_frame.destroy()                                                #Makeshift function to delete loser frame 
     window()
+
+
+
 
 def key_binder(event):
     global active_lettercount, Guess
@@ -66,11 +80,14 @@ def key_binder(event):
                 else:
                     loser()                                       
 
+
+
 def enter(event):
     global Guess
     if active_lettercount%5 == 0:
         Guess_Checker(Guess)
         Guess = ""
+
 
 def backspace(event):
     global active_lettercount, Guess
@@ -80,11 +97,16 @@ def backspace(event):
         Guess=Guess[:-1]
 
 
+
+
+
+
+
 def window():    
     global frame, active_lettercount, result, Answer
     letter_input.clear()
     frame.destroy()
-    frame = Frame(root,bg = "#000000")
+    frame = Frame(root,bg = "#242c2c")
     frame.pack()
     active_lettercount = 0
     result = False
@@ -95,29 +117,34 @@ def window():
             Input_Button.grid(row = i, column = j, padx = 3, pady = 3)
             letter_input.append(Input_Button)
 
-def rungame():
-    global Guess,letter_input,active_lettercount,result,titlee,words
-    root = Tk()
-    frame = Frame(root, bg = "#73706f")
-    frame.pack(ipadx = 20)
-    root.minsize(465,753)
-    root.title("Wordle Remake")
-    Guess = ""
-    with open("wordle kamlesh\wordle_words.txt", "r") as f:
-        words = f.read().splitlines()
-    letter_input = []                                  #Store "address" of buttons, to change color.
-    active_lettercount = 0                             #Keep track of lines
-    result = False
-    titlee = Label(root, text = "WORDLE", font = ("Times",40), bg = "#000000", fg = "#ffffff")        
-    titlee.pack(ipadx = 10, ipady = 10, fill = X)
-    root.bind("<BackSpace>", backspace)
-    root.bind("<Key>", key_binder)                                             #Event bind
-    root.bind("<Return>", enter)
-    window()
-    Menubar = Menu(root)
-    New_Menu = Menu(Menubar, tearoff = 0)
-    Menubar.add_cascade(label = "Options", menu = New_Menu)
-    New_Menu.add_command(label = "New Game", command = window)
-    New_Menu.add_command(label = "Exit", command = lambda: root.destroy())
-    root.config(menu = Menubar)
-    root.mainloop()
+
+root = Tk()
+frame = Frame(root, bg = "#73706f")
+frame.pack(ipadx = 20)
+root.title("Wordle Remake")
+root.configure(bg='#242c2c')
+
+cur_streak=1
+cur_user='Kamlesh'
+Guess = ""
+with open("D:\Kamlesh\Python\wordle kamlesh\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
+    words = f.read().splitlines()
+letter_input = []                                  #Store "address" of buttons, to change color.
+active_lettercount = 0                             #Keep track of lines
+result = False
+titlee = Label(root, text = "WORDLE", font = ("Times",40), bg = "#242c2c", fg = "#ffffff")     
+titlee.pack(ipadx = 10, ipady = 10, fill = X)
+streaklabel= Label(root,text='Current Streak:{}\n{}'.format(cur_streak,cur_user), font = ("Times",20), bg = "#242c2c", fg = "#ffffff",justify='right', anchor=NE)
+streaklabel.pack(ipadx = 10, ipady = 1, fill= X) 
+
+root.bind("<BackSpace>", backspace)
+root.bind("<Key>", key_binder)                                             #Event bind
+root.bind("<Return>", enter)
+window()
+Menubar = Menu(root)
+New_Menu = Menu(Menubar, tearoff = 0)
+Menubar.add_cascade(label = "Options", menu = New_Menu)
+New_Menu.add_command(label = "New Game", command = window)
+New_Menu.add_command(label = "Exit", command = lambda: root.destroy())
+root.config(menu = Menubar)
+root.mainloop()
