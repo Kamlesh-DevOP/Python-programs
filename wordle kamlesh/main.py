@@ -16,6 +16,19 @@ tab1=tab.add('Login')
 tab2=tab.add('Sign Up')
 
 cur_streak=0
+def get_cur_streak():
+    global cur_streak
+    with open(r'wordle kamlesh\userdetails.csv') as f:
+        r=csv.reader(f)
+        data=list(r).copy() #using .copy and copying csv contents in another list because 'in' operator malfunctioned due to some reason
+        if [userid,pwd] in data:
+            cur_user=userid
+    with open(r'wordle kamlesh\scores.csv') as f:
+        f.seek(0)
+        r=csv.reader(f)
+        for i in r:
+            if i[0]==cur_user:
+                cur_streak= int(i[1])
 def inc_streak(username):
     global cur_streak
     with open(r'wordle kamlesh\scores.csv') as f:
@@ -27,7 +40,7 @@ def inc_streak(username):
                 cur_streak= int(i[1])+1
             else:
                 l.append(i)
-    with open(r'wordle kamlesh\scores.csv','w') as f:
+    with open(r'wordle kamlesh\scores.csv','w', newline='') as f:
         w=csv.writer(f)
         w.writerows(l)
 def Guess_Checker(Guess):    #FUNCTION TO CHECK THE GUESS
@@ -50,8 +63,8 @@ def Guess_Checker(Guess):    #FUNCTION TO CHECK THE GUESS
                 answer_list[j][1] = 1
     if Guess == Answer:              
         result = True           #IF GUESS IS ANSWER, RUN winner()
-        inc_streak(cur_user)
         winner()
+        inc_streak(cur_user)
 
 def winner():
     global winner_frame
@@ -72,7 +85,7 @@ def loser():
     global loser_frame
     loser_frame = tk.Frame(root)
     loser_frame.pack()
-    lost = tk.Label(loser_frame, text = f"You Lost! Better Luck Next time! The word was {Answer}", font = ("Times", 25), bg = "#242c2c")
+    lost = tk.Label(loser_frame, text = f"You Lost! Better Luck Next time! The word was {Answer}", font = ("Times", 25), bg = "#242c2c", fg='#ffffff')
     lost.grid(column = 2)                                                                                         #Function to make Labels after loss
     exitgame2 = tk.Button(loser_frame, text = "Quit", command = lambda : root.destroy())
     exitgame2.grid(column = 2)
@@ -134,7 +147,6 @@ def rungame():
     root.state('zoomed')
     root.minsize(465,753)
     root.configure(bg='#242c2c')
-
     Guess = ""
     with open("D:\Kamlesh\Python\wordle kamlesh\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
         words = f.read().splitlines()
@@ -166,16 +178,19 @@ login_passwordstatus=StringVar(value='showing')
 login_showpass=CTkCheckBox(tab1, text='Show password', variable=login_passwordstatus, command=loginshowpassword, font=('book antiqua', 15))
 login_showpass.grid(row=2, padx=50, pady=10, sticky="ew")
 
+userid=''
+pwd=''
 def on_login_submit():
-    global cur_user
-    userid=userid_login_entry.get().strip()
-    pwd=pwd_login_entry.get().strip()
-    with open(r'wordle kamlesh\userdetails.csv','r') as f:
+    global cur_user, userid, pwd
+    userid=userid_login_entry.get()
+    pwd=pwd_login_entry.get()
+    with open(r'wordle kamlesh\userdetails.csv', ) as f:
         r=csv.reader(f)
         data=list(r).copy() #using .copy and copying csv contents in another list because 'in' operator malfunctioned due to some reason
         if [userid,pwd] in data:
             cur_user=userid
             signupwindow.destroy()
+            get_cur_streak()
             rungame()
         else:
             if pwd=='' or userid=='':
@@ -209,7 +224,7 @@ def on_signup_submit():
     pwd=signup_pwd_entry.get().strip()
     confirm=signup_confirmpass_entry.get()
     is_userid_exists=False
-    with open(r'wordle kamlesh\userdetails.csv') as f:
+    with open(r'wordle kamlesh\userdetails.csv',  ) as f:
         r=csv.reader(f)
         for i in r:
             if userid.lower()==i[0].lower():
@@ -218,7 +233,7 @@ def on_signup_submit():
 
     if confirm==pwd and len(pwd)!=0 and not is_userid_exists:
         cur_user=userid
-        with open(r'wordle kamlesh\userdetails.csv', 'a', newline='') as f, open(r'wordle kamlesh\scores.csv','a',newline='') as f1:
+        with open(r'wordle kamlesh\userdetails.csv', 'a',  ) as f, open(r'wordle kamlesh\scores.csv','a', ) as f1:
             w=csv.writer(f)
             w1=csv.writer(f1)
             w.writerow([userid, pwd])
