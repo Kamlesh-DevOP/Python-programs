@@ -18,33 +18,48 @@ tab2=tab.add('Sign Up')
 cur_streak=0
 def get_cur_streak():
     global cur_streak
-    with open(r'wordle kamlesh\userdetails.csv') as f:
-        r=csv.reader(f)
-        data=list(r).copy() #using .copy and copying csv contents in another list because 'in' operator malfunctioned due to some reason
-        if [userid,pwd] in data:
-            cur_user=userid
     with open(r'wordle kamlesh\scores.csv') as f:
         f.seek(0)
         r=csv.reader(f)
         for i in r:
-            if i[0]==cur_user:
+            if i[0]==userid:
                 cur_streak= int(i[1])
-def inc_streak(username):
+
+def inc_streak():
     global cur_streak
     with open(r'wordle kamlesh\scores.csv') as f:
+        f.seek(0)
         r=csv.reader(f)
         l=[]
         for i in r:
-            if i[0]==username:
+            if i[0]==userid:
                 l.append([i[0],int(i[1])+1])
                 cur_streak= int(i[1])+1
             else:
                 l.append(i)
     with open(r'wordle kamlesh\scores.csv','w', newline='') as f:
+        f.seek(0)
         w=csv.writer(f)
         w.writerows(l)
+
+def deletestreak():
+    global cur_streak
+    with open(r'wordle kamlesh\scores.csv') as f:
+        f.seek(0)
+        r=csv.reader(f)
+        l=[]
+        for i in r:
+            if i[0]==userid:
+                l.append([i[0],0])
+                cur_streak= 0
+            else:
+                l.append(i)
+    with open(r'wordle kamlesh\scores.csv','w', newline='') as f:
+        f.seek(0)
+        w=csv.writer(f)
+        w.writerows(l)
+
 def Guess_Checker(Guess):    #FUNCTION TO CHECK THE GUESS
-    global cur_user
     answer_list = []
     guess_list = []        
     print(Answer)   
@@ -63,14 +78,15 @@ def Guess_Checker(Guess):    #FUNCTION TO CHECK THE GUESS
                 answer_list[j][1] = 1
     if Guess == Answer:              
         result = True           #IF GUESS IS ANSWER, RUN winner()
+        inc_streak()
         winner()
-        inc_streak(cur_user)
 
 def winner():
     global winner_frame
     winner_frame = tk.Frame(root)
     winner_frame.pack()
-    won = tk.Label(winner_frame, text = f"You Won with {active_lettercount//5} guess(es)! ",font = ("Times", 25))
+    winner_frame.configure(bg = "#242c2c")
+    won = tk.Label(winner_frame, text = f"You Won with {active_lettercount//5} guess(es)! ",font = ("Times", 25), bg='#242c2c', fg='#ffffff')
     won.grid(column = 2)
     exitgame = tk.Button(winner_frame, text = "Quit", command = lambda : root.destroy())                             #Function to make labels after win
     exitgame.grid(column = 2)
@@ -78,13 +94,15 @@ def winner():
     replay.grid(column = 2)
 
 def winner2():
-    winner_frame.destroy()                                               #Makeshift function to delete endgame frame
-    window()
+    winner_frame.destroy()
+    root.destroy()
+    rungame()
 
 def loser():
     global loser_frame
     loser_frame = tk.Frame(root)
     loser_frame.pack()
+    loser_frame.configure(bg = "#242c2c")
     lost = tk.Label(loser_frame, text = f"You Lost! Better Luck Next time! The word was {Answer}", font = ("Times", 25), bg = "#242c2c", fg='#ffffff')
     lost.grid(column = 2)                                                                                         #Function to make Labels after loss
     exitgame2 = tk.Button(loser_frame, text = "Quit", command = lambda : root.destroy())
@@ -93,8 +111,10 @@ def loser():
     replay2.grid(column = 2)
 
 def loser2():
-    loser_frame.destroy()                                                #Makeshift function to delete loser frame 
-    window()
+    loser_frame.destroy()
+    deletestreak()
+    root.destroy()
+    rungame()
 
 def key_binder(event):
     global active_lettercount, Guess
@@ -139,7 +159,7 @@ def window():
 
 def rungame():
     global root,frame,Guess, Answer, letter_input, active_lettercount, result
-    global titlee, Menubar, New_Menu, choice, words, cur_user, cur_streak
+    global titlee, Menubar, New_Menu, choice, words, cur_user, cur_streak, streaklabel
     root = tk.Tk()
     frame = tk.Frame(root, bg = "#73706f")
     frame.pack(ipadx = 20)
@@ -155,7 +175,7 @@ def rungame():
     result = False
     titlee = tk.Label(root, text = "WORDLE", font = ("Times",40), bg = "#242c2c", fg = "#ffffff")     
     titlee.pack(ipadx = 10, ipady = 10, fill = X)
-    streaklabel= tk.Label(root,text='Current Streak:{}\n{}'.format(cur_streak,cur_user), font = ("Times",20), bg = "#242c2c", fg = "#ffffff",justify='right', anchor=NE)
+    streaklabel= tk.Label(root,text='{}\nCurrent Streak:{}'.format(cur_user, cur_streak), font = ("Times",20), bg = "#242c2c", fg = "#ffffff",justify='right', anchor=NE)
     streaklabel.pack(ipadx = 10, ipady = 1, fill= X) 
     root.bind("<BackSpace>", backspace)
     root.bind("<Key>", key_binder)
@@ -219,7 +239,7 @@ signup_showpass=CTkCheckBox(tab2, text='Show password', variable=signup_password
 signup_showpass.grid(row=3, padx=50, pady=10, sticky="ew")
 
 def on_signup_submit():
-    global cur_user
+    global cur_user, pwd, userid
     userid=signup_userid_entry.get().strip()
     pwd=signup_pwd_entry.get().strip()
     confirm=signup_confirmpass_entry.get()
@@ -233,7 +253,7 @@ def on_signup_submit():
 
     if confirm==pwd and len(pwd)!=0 and not is_userid_exists:
         cur_user=userid
-        with open(r'wordle kamlesh\userdetails.csv', 'a',  ) as f, open(r'wordle kamlesh\scores.csv','a', ) as f1:
+        with open(r'wordle kamlesh\userdetails.csv', 'a', newline='') as f, open(r'wordle kamlesh\scores.csv','a', newline='') as f1:
             w=csv.writer(f)
             w1=csv.writer(f1)
             w.writerow([userid, pwd])
