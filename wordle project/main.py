@@ -4,7 +4,7 @@ import tkinter as tk
 from random import *
 
 signupwindow=CTk()
-signupwindow.iconbitmap('wordle kamlesh\icon.ico')
+signupwindow.iconbitmap('wordle project\icon.ico')
 signupwindow.geometry('600x600')
 signupwindow.minsize(600,600)
 signupwindow.title('Wordle')
@@ -18,7 +18,7 @@ tab2=tab.add('Sign Up')
 cur_streak=0
 def get_cur_streak():
     global cur_streak
-    with open(r'wordle kamlesh\scores.csv') as f:
+    with open(r'wordle project\scores.csv') as f:
         f.seek(0)
         r=csv.reader(f)
         for i in r:
@@ -27,7 +27,7 @@ def get_cur_streak():
 
 def inc_streak():
     global cur_streak
-    with open(r'wordle kamlesh\scores.csv') as f:
+    with open(r'wordle project\scores.csv') as f:
         f.seek(0)
         r=csv.reader(f)
         l=[]
@@ -37,14 +37,14 @@ def inc_streak():
                 cur_streak= int(i[1])+1
             else:
                 l.append(i)
-    with open(r'wordle kamlesh\scores.csv','w', newline='') as f:
+    with open(r'wordle project\scores.csv','w', newline='') as f:
         f.seek(0)
         w=csv.writer(f)
         w.writerows(l)
 
 def deletestreak():
     global cur_streak
-    with open(r'wordle kamlesh\scores.csv') as f:
+    with open(r'wordle project\scores.csv') as f:
         f.seek(0)
         r=csv.reader(f)
         l=[]
@@ -54,7 +54,7 @@ def deletestreak():
                 cur_streak= 0
             else:
                 l.append(i)
-    with open(r'wordle kamlesh\scores.csv','w', newline='') as f:
+    with open(r'wordle project\scores.csv','w', newline='') as f:
         f.seek(0)
         w=csv.writer(f)
         w.writerows(l)
@@ -88,9 +88,9 @@ def winner():
     winner_frame.configure(bg = "#242c2c")
     won = tk.Label(winner_frame, text = f"You Won with {active_lettercount//5} guess(es)! ",font = ("Times", 25), bg='#242c2c', fg='#ffffff')
     won.grid(column = 2)
-    exitgame = tk.Button(winner_frame, text = "Quit", command = lambda : root.destroy())                             #Function to make labels after win
+    exitgame = tk.Button(winner_frame, text = "Quit", font=('Times New Roman',25,'bold'),command = lambda: root.destroy())                             #Function to make labels after win
     exitgame.grid(column = 2)
-    replay = tk.Button(winner_frame, text = "New Game", command = winner2)
+    replay = tk.Button(winner_frame, text = "New Game",font=('Times New Roman',25,'bold'), command = winner2)
     replay.grid(column = 2)
 
 def winner2():
@@ -105,9 +105,9 @@ def loser():
     loser_frame.configure(bg = "#242c2c")
     lost = tk.Label(loser_frame, text = f"You Lost! Better Luck Next time! The word was {Answer}", font = ("Times", 25), bg = "#242c2c", fg='#ffffff')
     lost.grid(column = 2)                                                                                         #Function to make Labels after loss
-    exitgame2 = tk.Button(loser_frame, text = "Quit", command = lambda : root.destroy())
+    exitgame2 = tk.Button(loser_frame, text = "Quit",  font=('Times New Roman',25,'bold'),command = lambda : root.destroy())
     exitgame2.grid(column = 2)
-    replay2 = tk.Button(loser_frame, text = "New Game", command = loser2)
+    replay2 = tk.Button(loser_frame, text = "New Game",  font=('Times New Roman',25,'bold'),command = loser2)
     replay2.grid(column = 2)
 
 def loser2():
@@ -168,7 +168,7 @@ def rungame():
     root.minsize(465,753)
     root.configure(bg='#242c2c')
     Guess = ""
-    with open("D:\Kamlesh\Python\wordle kamlesh\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
+    with open("D:\Kamlesh\Python\wordle project\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
         words = f.read().splitlines()
     letter_input = []                                  #Store "address" of buttons, to change color.
     active_lettercount = 0                             #Keep track of lines
@@ -204,7 +204,7 @@ def on_login_submit():
     global cur_user, userid, pwd
     userid=userid_login_entry.get()
     pwd=pwd_login_entry.get()
-    with open(r'wordle kamlesh\userdetails.csv', ) as f:
+    with open(r'wordle project\userdetails.csv', ) as f:
         r=csv.reader(f)
         data=list(r).copy() #using .copy and copying csv contents in another list because 'in' operator malfunctioned due to some reason
         if [userid,pwd] in data:
@@ -244,7 +244,7 @@ def on_signup_submit():
     pwd=signup_pwd_entry.get().strip()
     confirm=signup_confirmpass_entry.get()
     is_userid_exists=False
-    with open(r'wordle kamlesh\userdetails.csv',  ) as f:
+    with open(r'wordle project\userdetails.csv',  ) as f:
         r=csv.reader(f)
         for i in r:
             if userid.lower()==i[0].lower():
@@ -253,7 +253,7 @@ def on_signup_submit():
 
     if confirm==pwd and len(pwd)!=0 and not is_userid_exists:
         cur_user=userid
-        with open(r'wordle kamlesh\userdetails.csv', 'a', newline='') as f, open(r'wordle kamlesh\scores.csv','a', newline='') as f1:
+        with open(r'wordle project\userdetails.csv', 'a', newline='') as f, open(r'wordle project\scores.csv','a', newline='') as f1:
             w=csv.writer(f)
             w1=csv.writer(f1)
             w.writerow([userid, pwd])
