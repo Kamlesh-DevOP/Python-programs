@@ -165,7 +165,7 @@ def rungame():
     frame.pack(ipadx = 20)
     root.title("Wordle")
     root.state('zoomed')
-    root.minsize(465,753)
+    root.minsize(465,820)
     root.configure(bg='#242c2c')
     Guess = ""
     with open("D:\Kamlesh\Python\wordle project\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
