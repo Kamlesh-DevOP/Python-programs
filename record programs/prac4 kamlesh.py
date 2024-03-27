@@ -36,6 +36,7 @@ while True:
         print(reverse_str(st))
 
     elif ch==3:
+        print('Exiting...')
         break
     else:
         print('Invalid option')

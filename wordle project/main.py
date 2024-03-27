@@ -88,7 +88,7 @@ def winner():
     winner_frame.configure(bg = "#242c2c")
     won = tk.Label(winner_frame, text = f"You Won with {active_lettercount//5} guess(es)! ",font = ("Times", 25), bg='#242c2c', fg='#ffffff')
     won.grid(column = 2)
-    exitgame = tk.Button(winner_frame, text = "Quit", font=('Times New Roman',25,'bold'),command = lambda: root.destroy())                             #Function to make labels after win
+    exitgame = tk.Button(winner_frame, text = "Quit", font=('Times New Roman',25,'bold'),command = lambda: root.destroy())
     exitgame.grid(column = 2)
     replay = tk.Button(winner_frame, text = "New Game",font=('Times New Roman',25,'bold'), command = winner2)
     replay.grid(column = 2)
@@ -119,9 +119,9 @@ def loser2():
 def key_binder(event):
     global active_lettercount, Guess
     if (event.char >= "a" and event.char <= "z") or (event.char >= "A" and event.char <= "Z"): 
-        letter_input[active_lettercount]["text"] = event.char.upper()                          #Button gets text everytime key is pressed
+        letter_input[active_lettercount]["text"] = event.char.upper()  #Button gets text everytime key is pressed
         active_lettercount += 1
-        Guess = Guess + event.char.upper()                                 #Guess gets updated
+        Guess = Guess + event.char.upper()                             #Guess gets updated
         if active_lettercount % 5 == 0:
             if active_lettercount == 30:
                 if Guess == Answer:
@@ -165,7 +165,7 @@ def rungame():
     frame.pack(ipadx = 20)
     root.title("Wordle")
     root.state('zoomed')
-    root.minsize(465,820)
+    root.minsize(465,1000)
     root.configure(bg='#242c2c')
     Guess = ""
     with open("D:\Kamlesh\Python\wordle project\wordle_words.txt", "r") as f:            #File with all possible 5 letter english words
